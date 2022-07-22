@@ -1,68 +1,58 @@
-import { useEffect } from "react";
 import "./App.css";
-import { ToastContainer } from "react-toastify";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+
+import Home from "./components/Home";
+import NavBar from "./components/NavBar";
+import NotFound from "./components/NotFound";
+import Cart from "./components/Cart";
+
 import "react-toastify/dist/ReactToastify.css";
-import Home from "./pages/Home";
-import Login from "./pages/Login";
-import Register from "./pages/Register";
-import Header from "./components/Header";
+import Register from "./components/auth/Register";
+import Login from "./components/auth/Login";
+import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { setUser } from "./redux/features/authSlice";
-import AddEditTour from "./pages/AddEditTour";
-import SingleTour from "./pages/SingleTour";
-import Dashboard from "./pages/Dashboard";
-import PrivateRoute from "./components/PrivateRoute";
-import NotFound from "./pages/NotFound";
-import TagTours from "./pages/TagTours";
+import { loadUser } from "./slices/authSlice";
+import CheckoutSuccess from "./components/CheckoutSuccess";
+import Dashboard from "./components/admin/Dashboard";
+import Products from "./components/admin/Products";
+import Users from "./components/admin/Users";
+import Orders from "./components/admin/Oders";
+import Summary from "./components/admin/Summary";
+import CreateProduct from "./components/admin/CreateProduct";
 
 function App() {
   const dispatch = useDispatch();
-  const user = JSON.parse(localStorage.getItem("profile"));
+
   useEffect(() => {
-    dispatch(setUser(user));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    dispatch(loadUser(null));
+  }, [dispatch]);
+
   return (
-    <BrowserRouter>
-      <div className="App">
-        <Header />
+    <div className="App">
+      <BrowserRouter>
         <ToastContainer />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/tours/search" element={<Home />} />
-          <Route path="/tours/tag/:tag" element={<TagTours />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route
-            path="/addTour"
-            element={
-              <PrivateRoute>
-                <AddEditTour />
-              </PrivateRoute>
-            }
-          />
-          <Route
-            path="/editTour/:id"
-            element={
-              <PrivateRoute>
-                <AddEditTour />
-              </PrivateRoute>
-            }
-          />
-          <Route path="/tour/:id" element={<SingleTour />} />
-          <Route
-            path="/dashboard"
-            element={
-              <PrivateRoute>
-                <Dashboard />
-              </PrivateRoute>
-            }
-          />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </div>
-    </BrowserRouter>
+        <NavBar />
+        <div className="content-container">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/checkout-success" element={<CheckoutSuccess />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/admin" element={<Dashboard />}>
+              <Route path="summary" element={<Summary />} />
+              <Route path="products" element={<Products />}>
+                <Route path="create-product" element={<CreateProduct />} />
+              </Route>
+              <Route path="users" element={<Users />} />
+              <Route path="orders" element={<Orders />} />
+            </Route>
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </div>
+      </BrowserRouter>
+    </div>
   );
 }
 

@@ -1,11 +1,28 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
 import App from "./App";
-import "mdb-react-ui-kit/dist/css/mdb.min.css";
+
 import { Provider } from "react-redux";
-import store from "./redux/store";
-import reportWebVitals from "./reportWebVitals";
+import { configureStore } from "@reduxjs/toolkit";
+
+import productsReducer, { productsFetch } from "./slices/productsSlice";
+import cartReducer, { getTotals } from "./slices/cartSlice";
+import authReducer from "./slices/authSlice";
+import { productsApi } from "./slices/productsApi";
+
+const store = configureStore({
+  reducer: {
+    products: productsReducer,
+    cart: cartReducer,
+    auth: authReducer,
+    [productsApi.reducerPath]: productsApi.reducer,
+  },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(productsApi.middleware),
+});
+
+store.dispatch(productsFetch());
+store.dispatch(getTotals());
 
 ReactDOM.render(
   <React.StrictMode>
@@ -15,8 +32,3 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById("root")
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
