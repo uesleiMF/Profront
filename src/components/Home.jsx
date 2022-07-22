@@ -20,7 +20,7 @@ const Home = () => {
       {status === "success" ? (
         <>
           <h2>New Arrivals</h2>
-          <div className="products">
+          <div className="productss">
             {data &&
               data?.map((product) => (
                 <div key={product._id} className="product">
