@@ -10,83 +10,56 @@
       content="Web site created using create-react-app"
     />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!-- <link
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
-    rel="stylesheet"
-    /> -->
-    <link
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-    rel="stylesheet"
-    />
-    <!-- Google Fonts -->
-    <link
-    href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
-    rel="stylesheet"
-    />
-    <!-- MDB -->
-    <link
-    href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.11.0/mdb.min.css"
-    rel="stylesheet"
-    />
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js" integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw=="
-    crossorigin="anonymous"></script>
- 
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
 
-    <title>Full stack web App</title>
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <title>React App</title>
+
+    <meta name="description" content="Blog app is learning project by Mehul Kothari using Node js,React Js and Medium.It a great place to read and learn from a wide range of Blogs. You can write your own thoughts,ideas and share your knowledge and blogs. So why not Start writing today">
+
+    <!-- Google / Search Engine Tags -->
+    <meta itemprop="name" content="BlogApp using MERN Stack Technologies">
+    <meta itemprop="description" content="Blog app is learning project by Mehul Kothari using Node js,React Js and Medium.It a great place to read and learn from a wide range of Blogs. You can write your own thoughts,ideas and share your knowledge and blogs. So why not Start writing today">
+    <meta itemprop="image" content="https://github.com/mehulk05/Blog-Book/blob/master/src/assets/blog.jpg">
+
+    <!-- Facebook Meta Tags -->
+    <meta property="og:url" content="https://github.com/mehulk05/Blog-Book">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="BlogApp using MERN Stack Technologies">
+    <meta property="og:description"  content="Blog app is learning project by Mehul Kothari using Node js,React Js and Medium.It a great place to read and learn from a wide range of Blogs. You can write your own thoughts,ideas and share your knowledge and blogs. So why not Start writing today">
+    <meta property="og:image" content="https://github.com/mehulk05/Blog-Book/blob/master/src/assets/blog.jpg">
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="BlogApp using MERN Stack Technologies">
+    <meta name="twitter:description"  content="Blog app is learning project by Mehul Kothari using Node js,React Js and Medium.It a great place to read and learn from a wide range of Blogs. You can write your own thoughts,ideas and share your knowledge and blogs. So why not Start writing today">
+    <meta name="twitter:image" content="https://github.com/mehulk05/Blog-Book/blob/master/src/assets/blog.jpg">
+
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
-    
-       <!-- MDB -->
-  <script
-  type="text/javascript"
-  src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.11.0/mdb.min.js"
-  ></script>
-    <script>
-        // Graph
-        var ctx = document.getElementById("myChart");
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
 
-        var myChart = new Chart(ctx, {
-          type: "line",
-          data: {
-            labels: [
-              "Sunday",
-              "Monday",
-              "Tuesday",
-              "Wednesday",
-              "Thursday",
-              "Friday",
-              "Saturday",
-            ],
-            datasets: [
-              {
-                data: [15339, 21345, 18483, 24003, 23489, 24092, 12034],
-                lineTension: 0,
-                backgroundColor: "transparent",
-                borderColor: "#007bff",
-                borderWidth: 4,
-                pointBackgroundColor: "#007bff",
-              },
-            ],
-          },
-          options: {
-            scales: {
-              yAxes: [
-                {
-                  ticks: {
-                    beginAtZero: false,
-                  },
-                },
-              ],
-            },
-            legend: {
-              display: false,
-            },
-          },
-        });
-    </script>
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
   </body>
 </html>
