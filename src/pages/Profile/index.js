@@ -13,7 +13,7 @@ export default function Profile() {
   const { user, signOut, setUser, storageUser } = useContext(AuthContext);
 
   const [nome, setNome] = useState(user && user.nome);
-  const [email, setEmail] = useState(user && user.email);
+  const [email,setEmail] = useState(user && user.email);
 
   const [avatarUrl, setAvatarUrl] = useState(user.avatarUrl);
 
@@ -23,11 +23,11 @@ export default function Profile() {
     if (e.target.files[0]) {
       const image = e.target.files[0];
 
-      if (image.type === "image/jpeg" || image.type === "image/png") {
+      if (image.type === "image/jpeg" || image.type === "image/png" || image.type === "image/jpg") {
         setImageAvatar(image);
         setAvatarUrl(URL.createObjectURL(e.target.files[0]));
       } else {
-        alert("Envie uma imagem do tipo PNG ou JPEG");
+        alert("Envie uma imagem do tipo PNG,JPG ou JPEG");
         setImageAvatar(null);
         return null;
       }
